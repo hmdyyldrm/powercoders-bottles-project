@@ -1,0 +1,802 @@
+/* You can also have a CSS boilerplate with classes and element styles you regularly use */
+@font-face {
+	font-family: 'icons-bottles-boutique';
+	src:  url('fonts/icons-bottles-boutique.eot?zcaavp');
+	src:  url('fonts/icons-bottles-boutique.eot?zcaavp#iefix') format('embedded-opentype'),
+	  url('fonts/icons-bottles-boutique.ttf?zcaavp') format('truetype'),
+	  url('fonts/icons-bottles-boutique.woff?zcaavp') format('woff'),
+	  url('fonts/icons-bottles-boutique.svg?zcaavp#icons-bottles-boutique') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icons-bottles-boutique' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	padding-right: 0.5rem;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sustainable:before {
+	content: "\e900";
+}
+.icon-hot:before {
+	content: "\e901";
+}
+.icon-account:before {
+	content: "\e902";
+}
+.icon-recyclable:before {
+	content: "\e903";
+}
+.icon-cart:before {
+	content: "\e904";
+}
+.icon-eco:before {
+	content: "\e905";
+}
+.icon-bpa-free:before {
+	content: "\e906";
+}
+
+/* CSS Device adaption, recommended to always use if you want to support Internet Explorer 10 */
+@-ms-viewport {
+	width: device-width;
+}
+
+/* Useful for declaring global CSS Variables */
+:root {
+    /* examples for CSS variables */
+	--unit: 10px;
+
+	/* 06 - add general styles like sizes and colors */
+    --clr-body: #333333;
+    --clr-secondary: #ededed;
+
+	/* 06 - if your color scheme works with different variations of the same hue (=color) use hsl(a) for defining colors */
+	--clr-accent-hue: 34;
+  	--clr-primary: hsl(var(--clr-accent-hue) 88% 54%);
+  	--clr-primary-light: hsl(var(--clr-accent-hue) 88% 75%);
+
+	--font-body: 'Manrope', sans-serif;
+	--font-heading: 'Prata', serif;
+
+	--font-body-weight: 300;
+	--font-heading-weight: 400;
+	
+    /* with clamp and flexible size units base sizes can be quite easily defined: https://chrisburnell.com/clamp-calculator/ */
+	
+	--font-body-size-fb: 2rem;
+	--font-body-size: clamp(1.6rem, 1.44rem + 0.4vw, 2rem);
+
+	--font-heading-size-fb: 5.2rem;
+	--font-heading-size: clamp(3.4rem, 2.68rem + 1.8vw, 5.2rem);
+
+	--font-subheading-size-fb: 3.4rem;
+	--font-subheading-size: clamp(2rem, 1.44rem + 1.4vw, 3.4rem);
+
+	--base-offset: clamp(3rem, -1.4rem + 11vw, 14rem);
+
+	--base-width: 136.6rem;
+}
+/* 
+remove here, add somewhere else
+
+you can even use CSS variables to calculate different values within classes or for specific elements, e.g.
+.margin-top {
+	--margin-unit: var(--unit);
+	--multiplier: 1;
+
+	margin-top: calc(var(--multiplier) * var(--margin-unit));
+} */
+
+/* reset on root html element */
+html {
+	box-sizing: border-box;
+	font-size : var(--unit);
+	line-height : 1;
+	height : 100%;
+	scroll-behavior: smooth;
+	overflow-x : hidden;
+	width : 100%;
+}
+
+/* reset box-sizing and backface-visibility (needed for keyframe animation) */
+*, *:before, *:after {
+	box-sizing: inherit;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+/* style from big & general to small & specifix */
+* {
+	color : var(--clr-body);
+	font-family: var(--font-body);
+	font-weight: var(--font-body-weight);
+    /* for old browsers define fallback styles before desired style */
+	font-size: var(--font-body-size-fb);
+	font-size: var(--font-body-size);
+	
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+/* for layouting recommended to always add min-height and relative positioning on body */
+body {
+	min-height: 100%;
+	min-height: 100vh;
+	height: auto;
+	position: relative;
+	width: 100%;
+
+	/* is mobile */
+	z-index: 1;
+}
+
+/* reset styles */
+b, strong {
+	font-weight: 700;
+}
+
+ul, ol {
+	list-style-position: inside;
+}
+
+img, video, iframe {
+	max-width: 100%;
+	width: auto;
+}
+
+/* 08 - video background */
+.bg-video {
+	min-height: 45rem;
+	overflow: hidden;
+	position: relative;
+	
+	--multiplier: 0.5;
+	padding-bottom: calc(var(--multiplier) * var(--base-offset));
+}
+
+.bg-video video {
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 0;
+
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+}
+
+.bg-video * {
+	z-index: 1;
+}
+
+.bg-video *:not(a) {
+	color: white;
+}
+
+/* 06 - big2small - general to more detailed - first style elements which always look the same, than add more details / differences with classes and ids. */
+a {
+	color : var(--clr-primary);
+	text-decoration: none;
+}
+
+a:hover {
+	color : var(--clr-body);
+	text-decoration: underline;
+}
+
+/* in a layout headlines might have to look the same, even if you can only have one h1, so have an additional class */
+h1, .h1 {
+	font-family: var(--font-heading);
+	font-weight: var(--font-heading-weight);
+	font-size: var(--font-heading-size-fb);
+	font-size: var(--font-heading-size);
+
+	text-align: center;
+}
+
+h2, h3 {
+	font-family: var(--font-heading);
+	font-weight: var(--font-heading-weight);
+	font-size: var(--font-subheading-size-fb);
+	font-size: var(--font-subheading-size);
+}
+
+h4 {
+	font-weight: 700;
+}
+
+/* sometimes links look like button, use the same rule */
+.btn, button, input[type=button], header a {
+	border: 1px solid var(--clr-primary);
+	background: white;
+	color: var(--clr-primary);
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 500;
+	line-height: 1;
+	margin-top: 2rem;
+	padding: 1rem 2rem;
+	transition: all 200ms ease;
+} 
+
+.btn:hover, button:hover, header a:hover, input[type=button]:hover {
+	background: var(--clr-primary);
+	color: white;
+	transition: all 200ms ease;
+	text-decoration: none;
+}
+
+.arw:hover {
+	text-decoration: none;
+}
+
+.arw::after {
+	content: " ⟩⟩";
+	color: currentColor;
+	display: inline-block;
+	font-weight: inherit;
+	padding: 0 0.5rem;
+	position: relative;
+	right: 0;
+	transition: right 100ms ease;
+}
+
+h4.arw::after {
+	font-weight: 700;
+}
+
+a:hover .arw::after, li:hover .arw::after, .arw:hover::after {
+	right: 0.25rem;
+	transition: right 100ms ease;
+}
+
+/* 06 - all lists which are used for layouts don't need list-styles, only lists within the content do - reset ul styles */
+ul {
+	list-style: none;
+}
+
+/* 05 - layout - children of body always underneath each other, best choice is flex (1-dimensional) */
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+/* 05 - layout - sticky footer: keep the footer always at the end of the viewport or lower by making the main tag flexible */
+main {
+	flex: 1;
+}
+
+/* 05 - layout - elements within navigation are all in a row on desktop and move to column in mobile. */
+body > nav, body > nav ul {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+/* 07 - style navigation */
+body > nav {
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 2rem;
+}
+
+/* hide checkbox for mobile navigation
+07 - hide toggle Checkbox */
+input[type="checkbox"]#toggleMobileNav,
+input[type="checkbox"]#toggleLangDD,
+input[type="checkbox"]#toggleCart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    clip: rect(0,0,0,0);
+    clip: rect(0 0 0 0);
+}
+
+/* style label as hamburger icon */
+label[for="toggleMobileNav"] {
+	cursor: pointer;
+	position: fixed;
+}
+
+nav a img {
+	max-width: 21rem;
+}
+
+nav .mobile li a,
+nav div * {
+	font-family: Bellefair, serif;
+	font-weight: 200;
+	text-transform: uppercase;
+} 
+
+nav .mobile li a {
+	padding: 2rem 3rem;
+}
+
+nav li a:hover {
+	text-decoration: none;
+}
+
+.active {
+	background: var(--clr-primary);
+	color: white;
+}
+
+.active:hover {
+	color: white;
+}
+
+/* 07 - nav - style icons */
+.icons i, .icons span, #toggleCart i {
+	color: inherit;
+}
+
+.icons span {
+	font-size: 80%;
+}
+
+/* 07 - nav - make added wrapper div relative */
+nav div {
+	position: relative;
+}
+
+/* 07 - nav - make label "link-like" */
+label[for="toggleLangDD"],
+label[for="toggleCart"] {
+	cursor: pointer;
+}
+
+/* 07 - nav - style language dropdown */
+input[type="checkbox"]#toggleLangDD ~ ul,
+input[type="checkbox"]#toggleCart ~ table {
+	background: white;
+	display: block;
+	padding: 0.5rem 1.5rem;
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	top: -0.5rem;
+	transition: all 0.3s;
+	z-index: 1;
+}
+
+input[type="checkbox"]#toggleLangDD:checked ~ ul,
+input[type="checkbox"]#toggleCart:checked ~ table {
+	opacity: 1;
+	visibility: visible;
+	top: 2.8rem;
+	transition: all 0.3s;
+}
+
+/* 05 - layout - elements within header are in 1 column centered */
+header {
+	display: grid;
+	place-items: center;
+}
+
+/* 06 - big2small - center paragraph */
+header p {
+	margin: 2rem;
+	max-width: 47ch;
+	text-align: center;
+}
+
+/* 05 - layout - elements within main are always below each other */
+main {
+	display: grid;
+	place-items: center;
+}
+
+/* 05 - layout - elements within main children are always in a row on desktop and a column on mobile */
+section, article, aside {
+	margin: 5rem 0;
+	width: 100%;
+}
+
+section ul, aside ul {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+article {
+	overflow: hidden;
+}
+
+article ul {
+	display: flex;
+	flex-wrap: nowrap;
+	transform: translate(-10%);
+	transform: translate(0%);
+}
+
+section ul li, article ul li, aside ul li {
+	flex: 1 0 25%;
+	flex: 1 0 clamp(25%, 53.76rem + -34.4vw, 100%);
+}
+
+section li {
+	margin: 5rem 0;
+	text-align: center;
+}
+
+section li h4 {
+	text-align: center;
+}
+
+article li {
+	gap: 0.5rem;
+	padding: 2rem 0;
+}
+
+article li img {
+	height: 32.5rem;
+	width: 26rem;
+	object-fit: cover;
+	object-position: bottom;
+}
+
+article li a, aside li a, section li a,
+article li a:hover, aside li a:hover, section li a:hover {
+	text-decoration: none;
+}
+article li a:hover h4 {
+	color: var(--clr-primary);
+	transition: color 200ms ease;
+}
+
+article li a:hover img {
+	border: 1rem solid var(--clr-primary);
+	transition: border 200ms ease;
+}
+
+aside {
+	display: flex;
+    flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+aside ul {
+	gap: 2rem;
+}
+
+aside li {
+	position: relative;
+	margin: 2rem 0;
+}
+
+aside li img {
+	height: 55rem;
+	width: 55rem;
+	object-fit: cover;
+}
+
+aside li::before {
+	background: rgba(255, 255, 255, 0.5);
+	content: " ";
+	display: block;
+	height: 99%;
+	position: absolute;
+	top: 0;
+	transition: all 200ms ease;
+	width: 100%;
+	z-index: 0;
+}
+
+aside li a {
+	display: block;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	margin: auto;
+	padding: 5rem 5rem;
+}
+
+aside li:nth-child(even) a,
+aside li:nth-child(even) a * {
+	text-align: right;
+	top: auto;
+	bottom: 0;
+}
+
+aside li:hover {
+	cursor: pointer;
+}
+
+aside li:hover::before {
+	background-color: var(--clr-primary-light);
+	opacity: 0.85;
+	transition: all 200ms ease;
+}
+
+aside li a span {
+	color: var(--clr-primary);
+}
+
+aside li:hover a span {
+	color: var(--clr-body);
+	transition: color 200ms ease;
+}
+
+/* 09 - table styling */
+th {
+	border-bottom: 1px solid var(--clr-body);
+	font-weight: 700;
+}
+
+th, td {
+	padding: 0.5rem 2rem;
+}
+
+tr:last-child td {
+	color: var(--clr-primary);
+	font-weight: 700;
+}
+
+td ~ td {
+	text-align: right;
+}
+
+/* 09 - form styling */
+#checkout table,
+#checkout form {
+	margin: 0 auto;
+	max-width: 80rem;
+}
+
+fieldset {
+	border: 0;
+	display: grid;
+	margin-bottom: 2rem;
+}
+
+legend {
+	font-weight: 700;
+	padding: 1rem 0;
+}
+
+label {
+	padding: 1.5rem 1.5rem 0;
+	text-align: right;
+}
+
+input, textarea {
+	margin: 1rem 0;
+	max-width: 50ch;
+	max-width: clamp(50ch, 10.526rem + 31.579vw, 90%);
+	padding: 0.5rem 1rem;
+}
+
+input[type=radio] {
+	max-width: none;
+	justify-self: flex-end;
+	margin-right: 1.5rem;
+	text-align: right;
+}
+
+input[type=radio] + label {
+	padding-left: 0;
+	text-align: left;
+}
+
+input[type=checkbox] {
+	margin-left: 20rem;
+}
+
+input[type=checkbox]:checked + label + fieldset {
+	display: none;
+}
+
+:required:invalid {
+	border: 1px solid var(--clr-primary);
+}
+
+/* 05 - layout - 2-dimensional layout with h3+ul per column within nav, address as column in desktop and copyright always as row. */
+footer {
+	display: grid;
+	grid-template-areas: "nav"
+						 "h3"
+						 "p"
+						 "address";
+	/* 06 - add colors and general styling to the footer */
+	background: var(--clr-secondary);
+}
+
+body > footer {
+	--padding-offset: var(--base-offset);
+	--multiplier: 0.5;
+	padding-bottom: calc(var(--multiplier) * var(--base-offset));
+}
+
+footer * {
+	--multiplier: 0.85;
+	font-size: calc(var(--multiplier) * var(--font-body-size-fb));
+	font-size: calc(var(--multiplier) * var(--font-body-size));
+}
+	
+/* 06 - big2small - define a max-width for the content, especially for very big screens */
+body > * {
+	--padding-offset: var(--base-offset);
+	--multiplier: 0.5;
+
+	padding: calc(var(--multiplier) * var(--base-offset)) var(--base-offset) 0;
+}
+
+footer nav {
+	display: grid;
+	grid-template-areas: "title1"
+						 "list1"
+						 "title2"
+						 "list2";
+	grid-area: nav;
+}
+
+footer h3 {
+	font-size: var(--font-body-size-fb);
+	font-size: var(--font-body-size);
+	font-variant: small-caps;
+}
+
+footer nav h3 {
+	grid-area: title1;
+} 
+
+footer nav ul + h3 {
+	grid-area: title2;
+} 
+
+footer nav ul {
+	grid-area: list1;
+} 
+
+footer nav ul ~ ul {
+	grid-area: list2;
+} 
+
+footer > h3 {
+	grid-area: h3;
+}
+
+footer > p {
+	grid-area: p;
+}
+
+small, address {
+	--multiplier: 0.75;
+	font-size: calc(var(--multiplier) * var(--font-body-size-fb));
+	font-size: calc(var(--multiplier) * var(--font-body-size));
+
+	--multiplier2: 0.25;
+    margin-top: calc(var(--multiplier2) * var(--base-offset));
+}
+
+/* reset address */
+address {
+	display: inline;
+    font-style: normal;	
+	grid-area: address;
+}
+
+/* typical class to hide elements from layouts, but not from screen readers, mostly used for not visible headlines */
+.visuallyhidden {
+	border: 0;
+ 	clip: rect(0,0,0,0);
+  	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+/* MEDIA QUERIES */
+
+/* Define mobile styles */
+@media only screen {
+}
+/* max-width 320px, mobile-only styles, use when QAing mobile issues */
+@media only screen and (max-width: 20em) {
+}
+/* max-width 640px, mobile-only styles, use when QAing mobile issues */
+@media only screen and (max-width: 40em) {	
+	
+}
+/* min-width 641px, small medium screens */
+@media only screen and (min-width: 40.063em) {
+	
+}	
+	
+/* min-width 641px and max-width 1024px, use when QAing small-tablet-only issues */
+@media only screen and (min-width: 40.063em) and (max-width: 46.875em) {
+
+}
+/* min-width 751px, medium screens */
+@media only screen and (min-width: 46.938em) {
+	footer nav {
+		grid-template-areas: "title1 title2"
+							 "list1 list2";
+	}  
+	fieldset {
+		grid-template-columns: 20rem 1fr;
+	}
+}
+ /* min-width 751px and max-width 1024px, use when QAing tablet-only issues */
+@media only screen and (min-width: 46.938em) and (max-width: 64em) {
+	
+}
+
+ /* min-width 1025px, large screens */
+@media only screen and (min-width: 64.063em) {
+	footer {
+		grid-template-areas: "nav nav h3"
+							 "nav nav p"
+							 "address address address";
+	}
+
+	footer > p {
+		margin-top: -2.25rem;
+	}
+}
+ /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+@media only screen and (min-width: 64.063em) and (max-width: 81em) {
+
+}
+ /* min-width 1441px, xlarge screens */
+@media only screen and (min-width: 81.063em) {  
+  
+}
+ /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+@media only screen and (min-width: 90.063em) and (max-width: 120em) {
+
+}
+ /* min-width 1921px, xxlarge screens */
+@media only screen and (min-width: 120.063em) {
+
+}
+
+@media speech {
+}
+
+@media all and (-ms-high-contrast:none) {
+
+	*::-ms-backdrop, 
+	article {
+	  display: -ms-flexbox;
+	} 
+	/* only IE11 */
+}
+ 
+/*  
+* on MacOs: System Preferences > 
+*           Accessibility > 
+*           Display > Reduce motion
+* in case you have animations on your website
+*/
+
+@media (prefers-reduced-motion: reduce) {
+	
+}
+
+/*
+* in case you have animations on your website
+* make sure to add @keyframes always at the end of your stylesheet. 
+*/

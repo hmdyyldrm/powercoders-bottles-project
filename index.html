@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy beautiful bottles online | Bottles Boutique</title>
+    <!-- 06 - add Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Manrope:wght@300;500;700&family=Prata&display=swap" rel="stylesheet">
+    <!-- link to stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="favicon.ico"/>
+</head>
+<body>
+    <!-- prepare for mobile navigation, css only -->
+    <input type="checkbox" id="toggleMobileNav">
+    <label for="toggleMobileNav">
+        <span class="visuallyhidden">toggle navigation visibility on mobile</span>
+    </label>
+    <!-- main navigation, depending on layout can be in header -->
+    <nav>
+        <!-- add logo as link back to home -->
+        <a href="en/index.html">
+            <img src="img/logo-bottles-boutique.png" alt="Logo Bottles Boutique" title="Go back to Homepage">
+        </a>
+        <!-- 07 - add class to the only list we want to disappear mobile -->
+        <ul class="mobile">
+            <li>
+                <a href="en/shop.html">Shop bottles</a>
+            </li>
+            <li>
+                <a href="en/reviews.html">Reviews & stories</a>
+            </li>
+            <li>
+                <a href="en/about.html">About</a>
+            </li>
+        </ul>
+        <!-- 07 - move icons into its own list plus moving text within a-tag to areia-label -->
+        <ul class="icons">
+            <li>
+                <a aria-label="Account" href="en/account.html"><i class="icon-account"></i></a>
+            </li>
+            <li>
+                <a aria-label="Shopping Cart" href="en/cart.html"><i class="icon-cart"></i></a>
+            </li>
+        </ul>
+        <!-- 07 - change language list to a css only dropdown - just for styling reasons we need a wrapper = div possible -->
+        <div>
+            <input id="toggleLangDD" type="checkbox">
+            <label for="toggleLangDD">EN</label>
+            <ul>
+                <li>
+                    <a href="de/index.html">DE</a>
+                </li>
+                <li>
+                    <a href="fr/index.html">FR</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header class="bg-video">
+        <video autoplay playsinline muted loop>
+            <source src="video/river.mp4" type="video/mp4">
+            <source src="video/river.webm" type="video/webm">
+            <p>Your browser doesn't support HTML5 video. 
+            Here is a <a href="video/river.mp4">link to the video</a> instead.</p>
+        </video>
+        <!-- For SEO reasons only one h1 is still recommended, it should be an unique headline per page, can also be in the main section, depending on layout -->
+        <h1>Reusable bottles in beautiful designs.</h1>
+        <p>For water and more. Waterproof. Leak-proof. Keeps you drink ice-cold or super warm. For 24 hours.</p>
+        <a href="en/shop.html">Shop now</a>
+    </header>
+    <main>
+        <!-- Make sure not to skip h-tags. For accessibility you have to count from from 1 to 2 to 3. Never go directly from 1 to 3 -->
+        <h2>Our bottles - beautiful & practical</h2>
+        <!-- If you need more wrapper for styling, use article, section or aside. Divs are only recommended for elements without content and only styling purposes. -->
+        <section>
+            <h3 class="visuallyhidden">Benefits</h3>
+            <ul>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M446.261 989.566q-42.565 0-79.631-7.717-37.065-7.718-67.5-23.153 28.044-122.956 84.392-238.13Q439.87 605.391 535 525.87q-114.261 56.26-197.326 156.217-83.065 99.957-117.022 224.783-4.565-4.565-8.631-8.13-4.065-3.566-8.63-8.131-47.261-46.696-72.392-107.522-25.13-60.826-25.13-128.217 0-71.827 26.848-137.522 26.848-65.696 77.543-116.392 80.957-82.391 210.457-107.305 129.501-24.913 381.284-5.652 22.391 241.392-3.522 376.305-25.913 134.914-109.87 219.436-49.13 51.13-112.109 78.478-62.978 27.348-130.239 27.348Z"/></svg>
+                    <h4>Sustainable<br>resourced</h4>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m364.609 459.478 91.826-151.522-60.696-101.391q-13.13-20-36.196-20-23.065 0-35.065 20L223.087 375.217l141.522 84.261Zm399.435 281.044-91.826-153.087 143.522-82.261 66.261 110.391q11 18.131 11.717 39.696.717 21.565-8.717 40.13-10.566 21.131-30.631 33.131-20.065 12-43.63 12h-46.696ZM645.087 1029.57 480 864.479l165.087-165.088v82.261h196.218l-59.696 119.957q-11.565 21.131-31.13 33.131-19.566 12-43.131 12h-62.261v82.83Zm-399.435-82.83q-20.565 0-37.631-10.5-17.065-10.5-25.065-28.631-8.565-16.565-8.065-34.348.5-17.782 10.065-33.913l35.131-57.696h177.652V946.74H245.652ZM143.26 829.348 76.565 695.391q-10.13-18.565-9.348-39.63t12.348-40.196l16.565-28.13-70.261-42.131 225.783-56.695 56.696 227.348-70.696-43.696-94.392 157.087Zm557.523-353.305L475 419.348l71.261-42.131-129.522-214.783h146.087q21.565 0 40.348 11.065 18.783 11.066 30.348 29.066l53.696 89.826 70.826-43.696-57.261 227.348Z"/></svg>
+                    <h4>100%<br>Recyclable</h4>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M283 616q4-17 5.5-28t1.5-22q0-33-15-57.5T241 458q-26-36-37.5-69.5T192 319q0-14 1.5-28t5.5-35h60q-4 21-5.5 33.5T252 315q0 29 11 56t38 65q26 37 37.5 68t11.5 64q0 14-1.5 25.5T343 616h-60Zm160 0q4-17 5.5-28t1.5-22q0-33-15-57.5T401 458q-26-36-37.5-69.5T352 319q0-14 1.5-28t5.5-35h60q-3 16-5.5 29.5T411 315q0 29 11 56t38 65q26 37 37.5 68t11.5 64q0 15-1.5 26t-4.5 22h-60Zm160 0q4-17 5.5-28t1.5-22q0-33-15-57.5T561 458q-26-36-37.5-69.5T512 319q0-14 1.5-28t5.5-35h60q-3 16-5.5 29.5T571 315q0 29 11 56t38 65q26 37 37.5 68t11.5 64q0 15-1.5 26t-4.5 22h-60ZM480 896q-150 0-255-58.5T120 697q0-38 25.5-71.5T220 564v74q-20 14-30 28.5T180 697q0 52 93 95.5T480 836q114 0 207-43.5t93-95.5q0-17-10.5-32T740 638v-74q49 28 74.5 61.5T840 697q0 82-105 140.5T480 896Z"/></svg>
+                    <h4>24 hours<br>cold or hot</h4>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M479 848q16 0 24.5-5.5T512 826q0-11-8.5-17t-25.5-6q-42 0-85.5-26.5T337 683q-2-9-9-14.5t-15-5.5q-11 0-17 8.5t-4 17.5q15 84 71 121.5T479 848Zm1 128q-137 0-228.5-94T160 648q0-100 79.5-217.5T480 176q161 137 240.5 254.5T800 648q0 140-91.5 234T480 976Z"/></svg>
+                    <h4>BPA<br>free</h4>
+                </li>
+            </ul>
+        </section>
+        <article>
+            <h3>Shop bottles</h3>
+            <h4>Filter by price:</h4>
+            <button id="cheap"> < CHF 50</button>
+            <button id="average">< CHF 100</button>
+            <button id="expensive">< CHF 150</button>
+        </article>
+        <aside>
+            <h3>Stories</h3>
+            <a href="en/reviews.html" class="arw">All stories and reviews</a>
+            <ul>
+                <li>
+                    <img src="img/cobranded-option-1.jpg" alt="Branded bottle">    
+                    <a href="en/reviews.html">
+                        <h4>Co-brand your bottle</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur, quibusdam.</p>
+                        <span class="arw">Read more</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="img/review-bottle.jpg" alt="Woman with bottle giving great review">    
+                    <a href="en/reviews.html">
+                        <h4>Top reviews</h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id optio maxime assumenda.</p>
+                        <span class="arw">Read more</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </main>
+    <footer>
+        <!-- The footer usually contains another less important navigation as well as an address -->
+        <h2 class="visuallyhidden">Footer</h2>
+        <nav>
+            <h3>Support</h3>
+            <ul>
+                <li>
+                    <a href="">Contact us</a>
+                </li>
+                <li>
+                    <a href="">FAQ</a>
+                </li>
+                <li>
+                    <a href="">Return & Refund</a>
+                </li>
+            </ul>
+            <h3>Legal</h3>
+            <ul>
+                <li>
+                    <a href="">Terms & Conditions</a>
+                </li>
+                <li>
+                    <a href="">Privacy</a>
+                </li>
+            </ul>
+        </nav>
+        <h3>About us</h3>
+        <p>Bottles Boutique is a small online shop based in Zurich, Switzerland with the goal to sell beautiful, re-useable bottles which are later recyclable for a fair price.</p>
+        <small>&copy; 2023, <address>Bottles Boutique, Sample Street 5, 7897 Sample City</address></small>      
+    </footer>
+    <!-- Add the JavaScript at the end of the html page -->
+    <script src="script.js"></script>
+</body>
+</html>
